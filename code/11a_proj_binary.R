@@ -127,7 +127,7 @@ proj_binary <- function(QUERY,
 
     # --- 7.2. Discard low quality models according to NSD
     # Fixed at 50% average across the projection
-    if(MODEL[[i]][["eval"]][["NSD"]] > 0.5 | is.na(MODEL[[i]][["eval"]][["NSD"]])){
+    if(MODEL[[i]][["eval"]][["NSD"]] > 0.5 | is.na(MODEL[[i]][["eval"]][["NSD"]]) | is.null(MODEL[[i]][["eval"]][["NSD"]]){
       MODEL$MODEL_LIST <- MODEL$MODEL_LIST[MODEL$MODEL_LIST != i]
       message(paste("--- EVAL : discarded", i, "due to NSD =", MODEL[[i]][["eval"]][["NSD"]], "> 0.5 \n"))
     }
